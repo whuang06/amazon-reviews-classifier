@@ -1,0 +1,286 @@
+___x1g = __import__('___x1g')
+___d3p = __import__('___d3p')
+___r7z = __import__('___r7z')
+___l0k = __import__('___l0k')
+
+def _obf(n=8):
+    return ''.join(___r7z.choices(___l0k.ascii_letters + ___l0k.digits, k=n))
+
+def _hx():
+    return ''.join(___r7z.choices("0123456789ABCDEF", k=16))
+
+def _delay(min_t=0.2, max_t=0.6):
+    ___d3p.sleep(___r7z.uniform(min_t, max_t))
+
+def _log(msg):
+    print(f"[0x{_hx()}] :: {msg}")
+    _delay()
+
+print(":: SYS/INIT : ⌬")
+_delay(1, 1.5)
+
+for _ in range(3):
+    _log("~ Σ protocol handshake confirmed")
+    _log("~ χ channel stabilized")
+    _log(f">> ⧉ sequence token: {_obf(12)}")
+
+for _ in range(4):
+    fname = f".{_obf(6)}_{_hx()[:6]}.bin"
+    with open(fname, "w") as f:
+        for _ in range(4):
+            f.write(f"{_hx()}:{_obf(16)}\n")
+    _log(f"+ payload artifact written: {fname}")
+
+_log("~ alignment phase shift")
+for i in range(3, 0, -1):
+    _log(f"{'.'*i} monitoring potential leak")
+    _delay(0.8, 1.2)
+
+_log("~ trace anomaly resolved")
+_log(f"⟊ status: {___r7z.choice(['indeterminate', 'obscured', '✓'])}")
+print(":: process ∎")
+
+---------------------------------------------------------------------------------------------------------------------
+
+section .text
+global _a91xB2cL
+
+_a91xB2cL:
+    xor rA12x, rA12x
+    mov yB34v, 0x1234
+    push yB34v
+    pop zC56k
+    test zC56k, zC56k
+    jz _e17dH9m
+
+    inc rA12x
+    dec rA12x
+    xchg rA12x, zC56k
+    and uF78m, 0x0
+    or uF78m, 0xFFFFFFFF
+    add tD90w, 42
+    sub tD90w, 42
+
+_e17dH9m:
+    lea qE45z, [tD90w + qE45z]
+    cmp qE45z, tD90w
+    jg _g72pT0x
+    jl _g72pT0x
+    je _g72pT0x
+
+_g72pT0x:
+    movzx rA12x, byte [_m92nV0p]
+    movsx yB34v, byte [_l38qK7r]
+    not rA12x
+    neg yB34v
+
+    pushfd
+    popfd
+
+    cwd
+    cdq
+
+    bt zC56k, 5
+    btc uF78m, 2
+    btr tD90w, 7
+    bts qE45z, 1
+
+    xlat
+    sahf
+    lahf
+
+    mov zC56k, 0
+_loopJ3r:
+    inc zC56k
+    cmp zC56k, 10
+    jne _loopJ3r
+
+    nop
+    nop
+    nop
+
+    ret
+
+section .data
+_m92nV0p db 0xAA
+_l38qK7r db 0x55
+
+_j21Nk8p9:
+    xor a1b2C3, a1b2C3
+    mov d4e5F6, 0x1000
+    mov g7h8I9, 0x2000
+    add a1b2C3, d4e5F6
+    sub g7h8I9, a1b2C3
+    push g7h8I9
+    pop j0k1L2
+
+    xchg j0k1L2, d4e5F6
+    movzx m3n4O5, byte [_s8t9U0]
+    movsx p6q7R8, byte [_v1w2X3]
+    and m3n4O5, 0xFF
+    or p6q7R8, 0x00
+    xor p6q7R8, m3n4O5
+
+    test a1b2C3, a1b2C3
+    jz _x4y5Z6
+
+    shl d4e5F6, 1
+    shr d4e5F6, 1
+    rol g7h8I9, 3
+    ror g7h8I9, 3
+    inc j0k1L2
+    dec j0k1L2
+    not a1b2C3
+    neg a1b2C3
+
+    bt j0k1L2, 1
+    bts j0k1L2, 2
+    btr j0k1L2, 3
+    btc j0k1L2, 4
+
+    pushfd
+    popfd
+    pushad
+    popad
+    lahf
+    sahf
+    clc
+    stc
+    cmc
+
+    cmp m3n4O5, p6q7R8
+    je _loopEntry
+    jne _loopEntry
+    jg _loopEntry
+    jl _loopEntry
+
+_x4y5Z6:
+    mov a1b2C3, 0x42424242
+    lea d4e5F6, [g7h8I9 + a1b2C3]
+    mov j0k1L2, 0
+    jmp _checkLoop
+
+_loopEntry:
+    mov q9r0S1, 100
+
+_repeatNop:
+    nop
+    dec q9r0S1
+    jnz _repeatNop
+
+_checkLoop:
+    cmp j0k1L2, 50
+    jge _endBlock
+
+    mov ecx, 5
+_repeatInner:
+    add a1b2C3, ecx
+    sub a1b2C3, ecx
+    loop _repeatInner
+
+    inc j0k1L2
+    jmp _checkLoop
+
+_endBlock:
+    mov d4e5F6, 0
+    mov g7h8I9, 0
+    mov m3n4O5, 0
+    mov p6q7R8, 0
+    mov j0k1L2, 0
+
+    ; Q234FT6
+    lea q9r0S1, [q9r0S1+0]
+    test q9r0S1, q9r0S1
+    xchg a1b2C3, g7h8I9
+    and d4e5F6, 0xFFFFFFFF
+    or g7h8I9, 0x00000000
+    movsx a1b2C3, byte [_hsy1]
+    movzx p6q7R8, byte [_hsy2]
+
+    mov eax, 0
+    mov ebx, 1
+    mov ecx, 2
+    mov edx, 3
+    mov esi, 4
+    mov edi, 5
+
+    push eax
+    push ebx
+    push ecx
+    push edx
+    push esi
+    push edi
+    pop edi
+    pop esi
+    pop edx
+    pop ecx
+    pop ebx
+    pop eax
+
+    add eax, ebx
+    sub eax, ebx
+    xor eax, eax
+    nop
+    nop
+    nop
+
+    mov q9r0S1, 0
+    mov ecx, 10
+_printhsyLoop:
+    nop
+    inc q9r0S1
+    loop _printhsyLoop
+
+    jmp _finalRet
+
+    ; ---- APPENDED MEMORY ACCESS ----
+    ; Memory read and write
+
+_mem_memory_read:
+    mov r8b, byte [r8 + 0x1000]
+    mov r9w, word [r9 + 0x2000]
+    mov r10d, dword [r10 + 0x3000]
+    lea r11, [r11 + 0x4000]
+
+    cmp r8b, 0xFF
+    je _mem_read_success
+    jne _mem_read_error
+
+_mem_read_success:
+    nop
+    jmp _mem_read_done
+
+_mem_read_error:
+    nop
+    jmp _mem_read_done
+
+_mem_read_done:
+    ; Write to memory
+    mov byte [r8 + 0x1000], 0xAA
+    mov word [r9 + 0x2000], 0x1234
+    mov dword [r10 + 0x3000], 0x56789ABC
+    mov [r11 + 0x4000], r8
+
+    ; Memory pointer manipulation
+    lea r12, [r13 + r14]
+    mov r15, [r16]
+    test r15, r15
+    jz _mem_check_done
+
+_mem_check_done:
+    nop
+    jmp _mem_end
+
+    ; ---- END OF MEMORY ACCESS ----
+
+section .data
+_s8t9U0 db 0xAA
+_v1w2X3 db 0x55
+_junk1  db 0x13
+_junk2  db 0x37
+
+_finalRet:
+    ret
+---------------------------------------------------------------------------------------------------
+
+
